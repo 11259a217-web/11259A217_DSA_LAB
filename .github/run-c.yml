@@ -1,0 +1,19 @@
+name: Run DSA C Program
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Compile C program
+        run: gcc array_operations.c -o program
+
+      - name: Run C program
+        run: ./program
