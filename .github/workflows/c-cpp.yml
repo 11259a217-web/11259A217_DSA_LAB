@@ -2,12 +2,13 @@ name: Run DSA C Program
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
 
 jobs:
   run:
     runs-on: ubuntu-latest
+    timeout-minutes: 1
 
     steps:
       - name: Checkout repository
@@ -20,4 +21,4 @@ jobs:
         run: gcc 01-11259a217_exp1.c -o experiment
 
       - name: Run Experiment 1
-        run: ./experiment
+        run: ./experiment < input.txt
